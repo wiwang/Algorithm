@@ -4,4 +4,5 @@
 
 
 typedef unsigned int bool;
+typedef int Elem;
 
