@@ -1,3 +1,6 @@
+#include "Base.h"
+#include "BiTree.h"
+
 void RecurPreOrderTraverse(BinTree *root)
 {
     if(root != NULL)
