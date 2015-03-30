@@ -20,4 +20,6 @@ typedef struct BiThrNode
     struct BiThrNode *rchild;
     PointerTag ltag;
     PointerTag rtag;
-}
+}BiThrNode;
+
+
