@@ -113,3 +113,31 @@ void NonRecurPostOrderTraverse(BinTree *root)
 
 }
 
+
+BinTree* GetParentOfNode(BinTree *root, Elem data, BinTree *parent)
+{
+    BinTree *node = NULL;
+
+    if(root != NULL)
+    {
+        if(root->data == data)
+            return parent;
+        
+        if(node=GetParentOfNode(root->lchild, data, root) != NULL)
+            return node;
+        
+        if(node=GetParentOfNode(root->rchild, data, root) != NULL)
+            return node;
+    }
+    
+    return NULL;
+}
+
+int GetLevelOfNode(BinTree *root, Elem data)
+{
+
+
+
+}
+
+
