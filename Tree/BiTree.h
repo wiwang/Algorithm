@@ -22,4 +22,11 @@ typedef struct BiThrNode
     PointerTag rtag;
 }BiThrNode;
 
+typedef struct CSNode
+{
+    Elem data;
+    struct CSNode *firstchild;
+    struct CSNode *nextsibling;
+}CSNode;
+
 
