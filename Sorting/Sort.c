@@ -98,6 +98,44 @@ void BubbleSort(int array[], int len)
     return;
 }
 
+/* to find the position of pivot which divides array into two parts*/
+int Partition(int array[], int low, int high)
+{
+    printf("partition from %d to %d\n", low, high);
+
+    int pivot = array[low];
+
+    while(low < high)
+    {
+        while(low<high && pivot<=array[high]) high--; 
+        array[low] = array[high];
+
+        while(low<high && array[low]<=pivot) low++;
+        array[high] = array[low];
+    }
+    
+    printf("pivot is %d, position is %d\n", pivot, low);
+    
+    array[low] = pivot;
+    
+    return low;
+}
+
+void QuickSort(int array[], int low, int high)
+{
+    int pivot;
+    
+    if(low < high)
+    {
+        pivot = Partition(array, low, high);
+
+        QuickSort(array, low, pivot-1);
+        QuickSort(array, pivot+1, high);
+    }
+
+    return;
+}
+
 int main(int argc, char* argv[])
 {
     int i;
@@ -124,6 +162,10 @@ int main(int argc, char* argv[])
 
         case BubbleSortMethod:
              BubbleSort(array, len);
+             break;
+
+        case QuickSortMethod:
+             QuickSort(array, 0, len-1);
              break;
 
         default:
