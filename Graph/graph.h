@@ -6,7 +6,6 @@ typdef enum
     visited
 }VisitIf;
 
-
 typedef struct edge
 {
     VisitIf mark;
@@ -28,5 +27,5 @@ typedef struct
     Vertex adjMulList[MAX_VERTEX_NUM];
     int verNum;
     int edgeNum;
-}VertexBox;
+}AMLGragh;
  
