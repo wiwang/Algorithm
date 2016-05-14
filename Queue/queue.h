@@ -9,3 +9,7 @@ typedef struct
     int size;
 }Queue;
 
+
+BOOLEAN QueueEmpty(Queue *q);
+int DeQueue(Queue *q);
+void InitQueue(Queue *q);

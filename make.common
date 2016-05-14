@@ -1,0 +1,5 @@
+CC = gcc
+CFLAGS = -g -Wall -I$(SRC_HOME)/Include $(ALLOWED_INCLUDE_PATH) 
+
+SRC = $(wildcard *.c)
+

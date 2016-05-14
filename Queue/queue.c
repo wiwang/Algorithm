@@ -1,4 +1,6 @@
-
+#include <stdio.h>
+#include <stdlib.h>
+#include "Base.h"
 #include "queue.h"
 
 void InitQueue(Queue *q)
@@ -23,7 +25,9 @@ BOOLEAN EnQueue(Queue *q, int value)
     if(q->size < MAX_QUEUE_SIZE)
     {
         q->array[q->tail] = value;
-        q->tail = (q->tail++)%MAX_QUEUE_SIZE;
+        q->tail++;
+        q->tail = q->tail%MAX_QUEUE_SIZE;
+        
         q->size++;
        
         return TRUE;
@@ -49,6 +53,32 @@ int DeQueue(Queue *q)
     }
     else
     {
+        printf("Queue is empty.\n");
         return -1;
     }
+}
+
+
+int main(int argc, char* argv[])
+{
+    int i;
+    int elem;
+    Queue q;
+
+    InitQueue(&q);    
+
+    for(i=1; i<argc; i++)
+    {
+        elem = atoi(argv[i]);
+        EnQueue(&q, elem);
+    }
+ 
+    printf("Queue length is %d, head is %d, tail is %d.\n", q.size, q.head, q.tail);
+    
+    for(i=0; i<q.size; i++)
+    {
+        printf("%d\n", q.array[q.head+i]);
+    } 
+
+    return 0;
 }
