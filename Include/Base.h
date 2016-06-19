@@ -3,6 +3,6 @@
 #define FALSE 0
 
 
-typedef unsigned int bool;
+typedef unsigned int BOOLEAN;
 typedef int Elem;
 

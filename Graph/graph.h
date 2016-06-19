@@ -1,12 +1,31 @@
+#define MAX_VERTEX_NUM 100
 
-typedef struct ArcNode{
+typdef enum
+{
+    unvisited,
+    visited
+}VisitIf;
+
+typedef struct edge
+{
+    VisitIf mark;
     int ivex;
     int jvex;
-    struct ArcNode *ilink;
-    struct  ArcNode *jlink;
-}ArcNode;
+    struct edge *ilink;
+    struct edge *jlink;
+    int weight;
+}Edge;
 
-typedef struct VNode {
-    int data;
-    struct ArcNode *firstarc;
-}VNode;
+typedef struct vertex
+{
+    int value;
+    Edge *firstEdge;
+}Vertex;
+
+typedef struct
+{
+    Vertex adjMulList[MAX_VERTEX_NUM];
+    int verNum;
+    int edgeNum;
+}AMLGragh;
+ 
