@@ -1,4 +1,5 @@
 #include "Base.h"
+#include "Stack.h"
 #include "BiTree.h"
 
 void RecurPreOrderTraverse(BinTree *root)
@@ -135,9 +136,21 @@ BinTree* GetParentOfNode(BinTree *root, Elem data, BinTree *parent)
 
 int GetLevelOfNode(BinTree *root, Elem data)
 {
+    int level;    
 
+    if (root==NULL) return -1;
 
-
+    if (root->data==data)
+    {     
+        return 0;
+    }
+    else
+    {
+        level = GetLevelOfNode(root->lchild, data);
+        if (level>=0) return level+1;
+        level = GetLevelOfNode(root->rchild, data);
+        if (level>=0) return level+1;
+    }
 }
 
 
