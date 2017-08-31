@@ -1,4 +1,5 @@
 
+typedef int Elem;
 
 typedef struct BinTree
 {
