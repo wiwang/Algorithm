@@ -136,6 +136,49 @@ void QuickSort(int array[], int low, int high)
     return;
 }
 
+int* merge(int left[], int llen, int right[], int rlen, int *size)
+{
+    int i=j=0;
+    int num = 0;    
+
+    int *array=(int *)malloc(sizeof(int)*(llen+rlen));
+    if (array == NULL) return NULL;
+   
+    while(i<llen && j<rlen)
+    {
+         if(left[i] < right[j])
+         {
+             array[num++] = left[i++];
+         }
+ 
+         if(left[i] > right[j])
+         {
+             array[num++] = right[j++];
+         }
+
+         if(left[i] == right[j])
+         {
+             array[num++] = left[i];
+             i++;
+             j++;
+         }
+    }
+
+    while(i<llen)
+    {
+        array[num++] = left[i++];
+    }
+
+    while(j<rlen)
+    {
+        array[num++] = right[j++];
+    }
+
+    *size = num;
+   
+    return array;
+}
+
 int main(int argc, char* argv[])
 {
     int i;
